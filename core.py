@@ -1,0 +1,33 @@
+import pymongo,dns
+import hashid_gen
+
+client = pymongo.MongoClient("mongodb+srv://pu:pu@cluster0.flv2q.mongodb.net/urldb?retryWrites=true&w=majority")
+db = client.urldb
+url_collection = db.url
+#db.list_collection_names()
+
+idgen = hashid_gen.IDGenerator(8)
+def createURL():
+    short_url = "www.xyz.com/" + str(idgen.generate_id())
+    return str(short_url)
+
+def checkifexists(original_url):
+    if(url_collection.find_one({'url': original_url})):
+        print('found true')
+        return True
+    print('found false, inserting data..')
+    return False
+
+def checkifshortexists(short_url):
+    if(url_collection.find_one({'short_url': short_url})):
+        print('found true')
+        return True
+    print('found false, inserting data..')
+    return False
+
+def updatedb(original_url, short_url):
+    if(not checkifexists(original_url)):
+        post = {'url': original_url, 'short_url': short_url}
+        url_collection.insert_one(post)
+
+updatedb( 'www.linkedin.com', createURL())
