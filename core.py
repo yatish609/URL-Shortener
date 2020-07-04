@@ -14,16 +14,12 @@ def createURL():
 
 def checkifexists(original_url):
     if(url_collection.find_one({'url': original_url})):
-        print('found true')
         return True
-    print('found false, inserting data..')
     return False
 
 def checkifshortexists(short_url):
     if(url_collection.find_one({'short_url': short_url})):
-        print('found true')
         return True
-    print('found false, inserting data..')
     return False
 
 def updatedb(original_url, short_url):
