@@ -1,5 +1,5 @@
 from PyQt5 import QtCore, QtGui, QtWidgets
-
+import core
 
 class Ui_MainWindow(object):
     def setupUi(self, MainWindow):
@@ -61,6 +61,8 @@ class Ui_MainWindow(object):
         self.retranslateUi(MainWindow)
         QtCore.QMetaObject.connectSlotsByName(MainWindow)
 
+        self.shortenButton.clicked.connect(self.shortenURL)
+
     def retranslateUi(self, MainWindow):
         _translate = QtCore.QCoreApplication.translate
         MainWindow.setWindowTitle(_translate("MainWindow", "URL Shortener"))
@@ -68,6 +70,11 @@ class Ui_MainWindow(object):
         self.linkLabel.setText(_translate("MainWindow", "Link:"))
         self.shortenedLinkLabel.setText(_translate("MainWindow", "Shortened URL:"))
         self.updateLinkButton.setText(_translate("MainWindow", "Update"))
+
+    def shortenURL(self):
+        short_url = core.createURL()
+        core.updatedb(self.inputURL.text(),short_url)
+        self.shortenedURL.setText(short_url)
 
 
 if __name__ == "__main__":
