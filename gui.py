@@ -4,7 +4,7 @@ import core
 class Ui_MainWindow(object):
     def setupUi(self, MainWindow):
         MainWindow.setObjectName("MainWindow")
-        MainWindow.resize(786, 328)
+        MainWindow.setFixedSize(786, 340)
         self.centralwidget = QtWidgets.QWidget(MainWindow)
         self.centralwidget.setObjectName("centralwidget")
         self.shortenButton = QtWidgets.QPushButton(self.centralwidget)
@@ -41,7 +41,7 @@ class Ui_MainWindow(object):
         self.updateLinkButton.setGeometry(QtCore.QRect(660, 200, 111, 51))
         self.updateLinkButton.setObjectName("updateLinkButton")
         self.resultLabel = QtWidgets.QLabel(self.centralwidget)
-        self.resultLabel.setGeometry(QtCore.QRect(270, 260, 251, 16))
+        self.resultLabel.setGeometry(QtCore.QRect(270, 260, 251, 21))
         font = QtGui.QFont()
         font.setFamily("HoloLens MDL2 Assets")
         font.setPointSize(10)
@@ -72,9 +72,13 @@ class Ui_MainWindow(object):
         self.updateLinkButton.setText(_translate("MainWindow", "Update"))
 
     def shortenURL(self):
-        short_url = core.createURL()
-        core.updatedb(self.inputURL.text(),short_url)
-        self.shortenedURL.setText(short_url)
+        if(core.uri_exists_stream(self.inputURL.text())):
+            short_url = core.createURL()
+            core.updatedb(self.inputURL.text(),short_url)
+            self.shortenedURL.setText(short_url)
+            self.resultLabel.setText('Successfully shortened URL!')
+        else:
+            self.resultLabel.setText('Invalid URL!')
 
 
 if __name__ == "__main__":

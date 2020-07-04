@@ -30,7 +30,7 @@ def updatedb(original_url, short_url):
     post = {'url': original_url, 'short_url': short_url}
     url_collection.insert_one(post)
 
-def uri_exists_stream(uri: str) -> bool:
+def uri_exists_stream(uri):
     try:
         with requests.get(uri, stream=True) as response:
             try:
@@ -39,4 +39,6 @@ def uri_exists_stream(uri: str) -> bool:
             except requests.exceptions.HTTPError:
                 return False
     except requests.exceptions.ConnectionError:
+        return False
+    except:
         return False
