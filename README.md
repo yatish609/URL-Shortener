@@ -2,6 +2,13 @@
 
 This project is a Python-based URL-Shortener. 
 
+To run this project on a windows system:
+>Download dist/gui.exe and run
+
+To manually compile and run this project:
+> Install the dependencies mentioned below.
+> Run using 'python3 gui.py'
+
 Libraries used:
 >PyQt5
 
