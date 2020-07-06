@@ -37,10 +37,6 @@ class Ui_MainWindow(object):
         self.shortenedURL = QtWidgets.QLineEdit(self.centralwidget)
         self.shortenedURL.setGeometry(QtCore.QRect(190, 210, 431, 22))
         self.shortenedURL.setObjectName("shortenedURL")
-        self.updateLinkButton = QtWidgets.QPushButton(self.centralwidget)
-        self.updateLinkButton.setGeometry(QtCore.QRect(660, 200, 111, 51))
-        self.updateLinkButton.setObjectName("updateLinkButton")
-        self.updateLinkButton.setEnabled(False)
         self.resultLabel = QtWidgets.QLabel(self.centralwidget)
         self.resultLabel.setGeometry(QtCore.QRect(230, 260, 321, 21))
         font = QtGui.QFont()
@@ -63,7 +59,6 @@ class Ui_MainWindow(object):
         QtCore.QMetaObject.connectSlotsByName(MainWindow)
 
         self.shortenButton.clicked.connect(self.shortenURL)
-        self.updateLinkButton.clicked.connect(self.customURL)
 
     def retranslateUi(self, MainWindow):
         _translate = QtCore.QCoreApplication.translate
@@ -71,35 +66,16 @@ class Ui_MainWindow(object):
         self.shortenButton.setText(_translate("MainWindow", "Shorten"))
         self.linkLabel.setText(_translate("MainWindow", "Link:"))
         self.shortenedLinkLabel.setText(_translate("MainWindow", "Shortened URL:"))
-        self.updateLinkButton.setText(_translate("MainWindow", "Update"))
 
     def shortenURL(self):
-        stripped_url = self.inputURL.text().strip()
-        if(core.uri_exists_stream(stripped_url)):
-            self.inputURL.setText(stripped_url)
-            short_url = core.createURL().strip()
-            core.updatedb(stripped_url,short_url)
-            self.shortenedURL.setText(short_url)
-            self.updateLinkButton.setEnabled(True)
+        originalURL = self.inputURL.text().strip()
+        if(core.checkURL(originalURL)):
+            self.inputURL.setText(originalURL)
+            shortURL = core.createURL(originalURL)
+            self.shortenedURL.setText(shortURL)
             self.resultLabel.setText('Successfully shortened URL!')
         else:
             self.resultLabel.setText('Invalid URL!')
-
-    def customURL(self):
-        stripped_short_url = self.shortenedURL.text().strip()
-        if("www.xyz.com/" in self.shortenedURL.text()):
-            if(len(stripped_short_url)>=13):
-                if(core.checkifshortexists(stripped_short_url)):
-                    self.resultLabel.setText('This custom URL already exists!')
-                else:
-                    core.updatedb(self.inputURL.text().strip(),stripped_short_url)
-                    self.shortenedURL.setText(stripped_short_url)
-                    self.resultLabel.setText('Successfully updated custom short URL!')
-            else:
-                self.resultLabel.setText('Incorrect URL!')
-        else:
-            self.resultLabel.setText('Custom URL incorrectly modified!')
-
 
 if __name__ == "__main__":
     import sys

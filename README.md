@@ -6,6 +6,7 @@ To run this project on a windows system:
 1. Download dist/gui.exe and run
 
 To manually compile and run this project:
+(NOTE: _old files are the older version of this project that has a different base)
 1. Install the dependencies mentioned below.
 2. Run using 'python3 gui.py'
 
