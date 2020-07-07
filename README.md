@@ -6,8 +6,10 @@ _old = Shortens the URL, stores it in database, allows you to manually set URL. 
 
 default = Shortens the URL, stores it in database, doesn't allow you to manually set URL. However, it redirects the URL.
 
+## Installation
+
 To run this project on a windows system:
-1. Download dist/gui.exe and run
+1. Download the executable from the release page.
 
 To manually compile and run this project:
 1. Install the dependencies mentioned below.
