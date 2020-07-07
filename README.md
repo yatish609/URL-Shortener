@@ -2,11 +2,13 @@
 
 This project is a Python-based URL-Shortener. 
 
+_old = Shortens the URL, stores it in database, allows you to manually set URL. However, it doesn't redirect the URL.
+default = Shortens the URL, stores it in database, doesn't allow you to manually set URL. However, it redirects the URL.
+
 To run this project on a windows system:
 1. Download dist/gui.exe and run
 
 To manually compile and run this project:
-(NOTE: _old files are the older version of this project that has a different base)
 1. Install the dependencies mentioned below.
 2. Run using 'python3 gui.py'
 
