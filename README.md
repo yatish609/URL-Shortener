@@ -13,13 +13,13 @@ default = Shortens the URL, stores it in database, doesn't allow you to manually
 
 * To manually compile and run this project:
     1. Install the dependencies:
-    ~~~
-    For _old files:
-    pip install pyqt5-tools pymongo dns requests
+        ~~~
+        For _old files:
+        pip install pyqt5-tools pymongo dns requests
 
-    For default files:
-    pip install pyqt5-tools requests validators
-    ~~~
+        For default files:
+        pip install pyqt5-tools requests validators
+        ~~~
     2. Run using 'python3 gui.py'
 
 Based on Python 3.8.2 and compiled using python's own virtualenv.
