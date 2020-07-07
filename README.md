@@ -9,7 +9,7 @@ default = Shortens the URL, stores it in database, doesn't allow you to manually
 # Installation
 
 To run this project on a windows system:
-1. Download the executable from the release page.
+1. Download the [executable](https://github.com/yatish609/URL-Shortener/releases).
 
 To manually compile and run this project:
 1. Install the dependencies mentioned below.
