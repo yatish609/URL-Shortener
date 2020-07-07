@@ -3,6 +3,7 @@
 This project is a Python-based URL-Shortener. 
 
 _old = Shortens the URL, stores it in database, allows you to manually set URL. However, it doesn't redirect the URL.
+
 default = Shortens the URL, stores it in database, doesn't allow you to manually set URL. However, it redirects the URL.
 
 To run this project on a windows system:
