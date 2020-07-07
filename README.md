@@ -6,15 +6,6 @@ _old = Shortens the URL, stores it in database, allows you to manually set URL. 
 
 default = Shortens the URL, stores it in database, doesn't allow you to manually set URL. However, it redirects the URL.
 
-# Installation
-
-To run this project on a windows system:
-1. Download the [executable](https://github.com/yatish609/URL-Shortener/releases).
-
-To manually compile and run this project:
-1. Install the dependencies mentioned below.
-2. Run using 'python3 gui.py'
-
 Libraries used:
 >PyQt5
 
@@ -24,10 +15,17 @@ Libraries used:
 
 >Requests
 
-Based on Python 3.8.2 and compiled using python's own virtualenv.
+# Installation
 
-To install dependencies:
+To run this project on a windows system:
+1. Download the [executable](https://github.com/yatish609/URL-Shortener/releases).
 
+To manually compile and run this project:
+1. Install the dependencies:
 ~~~
 pip install pyqt5-tools pymongo dns requests
 ~~~
+2. Run using 'python3 gui.py'
+
+Based on Python 3.8.2 and compiled using python's own virtualenv.
+
