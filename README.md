@@ -6,6 +6,8 @@ _old = Shortens the URL, stores it in database, allows you to manually set URL. 
 
 default = Shortens the URL, stores it in database, doesn't allow you to manually set URL. However, it redirects the URL.
 
+Input URL Format: https://www.example.com
+
 # Installation
 
 * To run this project on a windows system:
